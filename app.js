@@ -46,7 +46,7 @@ function makeTeam() {
     .then(function({name, role, id, email}) {
         let memberInfo = "";
         if (role === "Manager") {
-            memberInfo = "office phone number";
+            memberInfo = "office number";
     } else if (role === "Engineer") {
         memberInfo = "github username";
     } else {
