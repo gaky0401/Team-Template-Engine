@@ -6,4 +6,4 @@ Using node and inquirer, I wrote an app that generates team members and populate
 
 ## GitHub
 
-[gaky0401](www.github.com/gaky0401)
+[gaky0401](www.github.com/gaky0401/)
