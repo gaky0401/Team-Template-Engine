@@ -57,15 +57,39 @@ function makeTeam() {
         name: "memberInfo"
     },
     {
-        type: "list",
+        type: "confirm",
         message: "Add another team member?",
-        choices: [
-            "yes",
-            "no"
-        ],
-        name: "addMembers"
+        name: "addMembers",
     }])
+    .then(function ({memberInfo, addMembers}) {
+        let teamMember;
+        if (role === "Engineer") {
+            teamMember = new Engineer(name, id, email, memberInfo);
+        } else if (role === "Intern") {
+            teamMember = new Intern(name, id, email, memberInfo);
+        } else {
+            teamMember = new Manager(name, id, email, memberInfo);
+        }
+        employees.push(teamMember);
+        if (addMembers) {
+            makeTeam();
+        } else {
+            render(employees);
+            fs.writeFile(outputPath, render(employees), (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log("It worked.");
+            });
+        }
+    })
+    catch((err) => {
+        if (err) {
+            console.log("Error", err);
+        }
+    });
 });
+}
 makeTeam();
 
 
