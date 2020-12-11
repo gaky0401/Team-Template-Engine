@@ -83,7 +83,7 @@ function makeTeam() {
             });
         }
     })
-    catch((err) => {
+    .catch((err) => {
         if (err) {
             console.log("Error", err);
         }
