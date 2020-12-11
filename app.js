@@ -48,10 +48,25 @@ function addEmployee() {
         if (role === "Manager") {
             employeeInfo = "office phone number";
     } else if (role === "Engineer") {
-
+        employeeInfo = "github username";
+    } else {
+        employeeInfo = "school name";
     }
+    inquirer.prompt([{
+        message: `Enter Team Member's ${employeeInfo}`,
+        name: "employeeInfo"
+    },
+    {
+        type: "list",
+        message: "Add another team member?",
+        choices: [
+            "yes",
+            "no"
+        ],
+        name: "addMembers"
+    }])
 }
-    })
+    
 }
 
 
