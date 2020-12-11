@@ -12,49 +12,49 @@ const render = require("./lib/htmlRenderer");
 
 const employees = [];
 
-funct initApp() {
-    startHTML();
-    addEmployee();
-}
+// funct makeTeam() {
+//     addEmployee();
+// }
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-function addEmployee() {
-    inquirer.prompt([{
-        message: "Enter employee name",
+function makeTeam() {
+    inquirer
+        .prompt([{
+        message: "Enter team member name",
         name: "name"
     },
     {
         type: "list",
-        message: "Choose employee role",
+        message: "Choose member role",
         choices: [
             "Manager",
             "Engineer",
             "Intern"
-        ],\
+        ],
         name: "role"
     },
     {
-        message: "Enter employee ID",
+        message: "Enter member ID",
         name: "id"
     },
     {
-        message: "Enter employee e-mail address",
+        message: "Enter member e-mail address",
         name: "email"
     }])
 
     .then(function({name, role, id, email}) {
-        let employeeInfo = "";
+        let memberInfo = "";
         if (role === "Manager") {
-            employeeInfo = "office phone number";
+            memberInfo = "office phone number";
     } else if (role === "Engineer") {
-        employeeInfo = "github username";
+        memberInfo = "github username";
     } else {
-        employeeInfo = "school name";
+        memberInfo = "school name";
     }
     inquirer.prompt([{
-        message: `Enter Team Member's ${employeeInfo}`,
-        name: "employeeInfo"
+        message: `Enter Team Member's ${memberInfo}`,
+        name: "memberInfo"
     },
     {
         type: "list",
@@ -65,9 +65,10 @@ function addEmployee() {
         ],
         name: "addMembers"
     }])
-}
-    
-}
+});
+makeTeam();
+
+
 
 
 // After the user has input all employees desired, call the `render` function (required
